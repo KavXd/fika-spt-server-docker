@@ -1,12 +1,13 @@
 services:
   fika-server:
-    image: ghcr.io/zhliau/fika-spt-server-docker:latest
+    image: ghcr.io/zhliau/fika-spt-server-docker:3.10.5
     ports:
       - 6969:6969
     environment:
       # Provide the uid/gid of the user, or it will default to 0 (root)
       - UID=1000
       - GID=1000
+      - INSTALL_OTHER_MODS=true
       # If you want to auto-install Fika on an existing Fika-less SPT Server install, set this to true.
       # Will do nothing if your serverfiles mount already has a fika-server dir in user/mods/
       - INSTALL_FIKA=true
